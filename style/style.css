@@ -1,18 +1,47 @@
-.timer {
-    margin-left: 20px;
+.header{
+    text-align: center;
+}
+
+.column{
+    float: left;
+}
+
+.column.timer {
     background-color: blue;
-    width: 10%;
-    height: 30%;
+    width: 25%;
+    height: 200px;
 }
 
-.board {
+.column.board{
     background-color: grey;
-    width: 60%;
-    height: 50%;
+    width: 50%;
+    height: 800px;
 }
 
-.statistics {
+.column.statistics {
     background-color: rebeccapurple;
-    width: 30%;
-    height: 50%;
+    width: 25%;
+    height: 400px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.board-button{
+    position: absolute;
+    height: 800px;
+    width: 950px;
+}
+
+.target-button{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
+    background-color: red;
 }

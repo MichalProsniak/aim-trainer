@@ -16,6 +16,7 @@
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"
         ></script>
+        <script src="game.js"></script>
 </head>
 <body>
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,24 +48,21 @@
                 </div>
             </div>
         </nav>
+        <div class="header">
+            <h1>Time will be here</h1>
+        </div>
 
-        <div>
-            <div class="timer">
-                <p>xxxx</p>
-            </div>
-            <div class="board">
-                <p>xxxx</p>
-
-            </div>
-            <div class="statistics">
-                <p>xxxx</p>
+        <div class="row">
+            <div class="column timer">
 
             </div>
+            <div class="column board">
+                <button class="board-button" type="button" onclick="alert('miss')"></button>
+                <button class="target-button" id="btn" type="button" onclick="changePosition()"></button>
+            </div>
+            <div class="column statistics">
 
-
-
-
-
+            </div>
         </div>
 
 </body>
