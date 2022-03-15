@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET', 'POST'])
 def main_page():
     if request.method == 'GET':
         return render_template('index.html')
