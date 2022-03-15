@@ -45,3 +45,15 @@
     border: 1px solid red;
     background-color: red;
 }
+
+.target-button-start {
+    position: relative;
+    left: 50% ;
+    top: 50%;
+    display:block;
+    height: 50px;
+    width: 250px;
+    border-radius: 0%;
+    border: 1px solid green;
+    background-color: green;
+}

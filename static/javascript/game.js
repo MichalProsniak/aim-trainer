@@ -5,15 +5,33 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 }
-
+let start = false
 let hitCounter=0;
 function changePosition() {
     let btn = document.getElementById('btn');
-    btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
-    btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
-    hitCounter +=1;
+
+    if (start == true ) {
+        btn.classList.add('target-button')
+        btn.style.top = 50 + '%';
+        btn.style.left = 50 + "%";
+        btn.innerHTML = "Start game!"
+        start = false
+        hitCounter = 0
+        console.log('dziala ')
+    } else {
+        btn.innerHTML = ""
+        btn.classList.add('target-button')
+        btn.classList.remove('target-button-start')
+        btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
+        btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
+        hitCounter +=1;
+    }
     return hitCounter
    /* return [hitCounter, shootCounter]; */
+}
+function onloadbutton() {
+    let btn = document.getElementById('btn');
+    btn.innerHTML = "Start game!"
 }
 
 let missCounter=0;
@@ -34,4 +52,8 @@ function statistics(hitCounter, missCounter, maxTimer, userName) {
     document.getElementById("hits_per_second").innerHTML = hitsPerSecond;
     document.getElementById("hit_counter").innerHTML = hitCounter;
     document.getElementById("user_name").innerHTML = userName;
+}
+
+function startButton() {
+
 }

@@ -5,14 +5,28 @@ function updateCountdown() {
     const countDownEl = document.getElementById('aimtimer');
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
+    if (seconds <10) {
+        seconds = "0" + seconds
+    }
     countDownEl.innerHTML = `${minutes}: ${seconds}`;
-    console.log(time)
     time--;
 
 }
-
+let clicked = false
 function startTimer() {
-    setInterval(updateCountdown, 1000)
+    if (clicked == true) {
+    } else {
+        setInterval(updateCountdown, 1000)
+        clicked = true
+    }
+
 }
 
 
+function getBill(user, sales) {
+    if (!clicked) {
+        clicked = true;
+        window.alert('Your bill is on the way.');
+        //do the billing process
+    }
+}
