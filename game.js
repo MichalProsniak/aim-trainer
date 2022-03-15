@@ -11,3 +11,4 @@ function changePosition() {
     btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
     btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
 }
+

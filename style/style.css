@@ -8,20 +8,20 @@
 
 .column.timer {
     background-color: blue;
-    width: 25%;
-    height: 200px;
+    width: 5%;
+    height: 800px;
 }
 
 .column.board{
     background-color: grey;
-    width: 50%;
+    width: 80%;
     height: 800px;
 }
 
 .column.statistics {
     background-color: rebeccapurple;
-    width: 25%;
-    height: 400px;
+    width: 15%;
+    height: 800px;
 }
 
 .row:after {
@@ -33,7 +33,7 @@
 .board-button{
     position: absolute;
     height: 800px;
-    width: 950px;
+    width: 80%;
 }
 
 .target-button{
