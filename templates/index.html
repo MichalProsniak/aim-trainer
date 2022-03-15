@@ -4,19 +4,21 @@
     <title>Aim trainer</title>
     <meta charset="UTF-8">
 
-    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
             crossorigin="anonymous"
         />
+
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"
         ></script>
-        <script src="game.js"></script>
+
+        <script src="/static/javascript/game.js"></script>
         <script src="timer.js"></script>
 </head>
 <body>
@@ -58,11 +60,16 @@
 
             </div>
             <div class="column board">
-                <button class="board-button" type="button" onclick="alert('miss')"></button>
-                <button class="target-button" id="btn" type="button" onclick="changePosition()"></button>
+                <button class="board-button" type="button" onclick="statistics(hitCounter, countMiss(), 0, 'Damian')"></button>
+                <button class="target-button" id="btn" type="button" onclick="statistics(changePosition(), missCounter, 0, 'Damian')"></button>
             </div>
             <div class="column statistics">
-
+                <h2>Statistics</h2>
+                <p>Player: <span id="user_name"></span></p>
+                <p>Accuracy: <span id="accuracy"></span></p>
+                <p>Hit targets: <span id="hit_counter"></span></p>
+                <p>Miss targets: <span id="miss_counter"></span></p>
+                <p>APS: <span id="hits_per_second"></span></p>
             </div>
         </div>
 
