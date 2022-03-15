@@ -35,3 +35,25 @@ function statistics(hitCounter, missCounter, maxTimer, userName) {
     document.getElementById("hit_counter").innerHTML = hitCounter;
     document.getElementById("user_name").innerHTML = userName;
 }
+
+
+function game_settings() {
+    let modal = document.getElementById("game-set");
+    let gameSetBtn = document.getElementById("game-settings-button");
+    let close = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    gameSetBtn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    close.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+}
