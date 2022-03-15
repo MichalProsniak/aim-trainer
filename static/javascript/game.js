@@ -54,6 +54,39 @@ function statistics(hitCounter, missCounter, maxTimer, userName) {
     document.getElementById("user_name").innerHTML = userName;
 }
 
-function startButton() {
 
+function game_settings() {
+    let modal = document.getElementById("game-set");
+    let gameSetBtn = document.getElementById("game-settings-button");
+    let close = document.getElementsByClassName("close")[0];
+    let easyMode = document.getElementById("easy-mode");
+    let mediumMode = document.getElementById("medium-mode");
+    let rankedMode = document.getElementById("ranked-mode");
+
+    // When the user clicks the button, open the modal
+    gameSetBtn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    easyMode.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    mediumMode.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    rankedMode.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    close.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 }

@@ -36,7 +36,7 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav" style="padding-right: 15px">
-                        <button class="btn btn-primary" type="button" aria-current="page" href="#"
+                        <button id="game-settings-button" class="btn btn-primary" type="button" aria-current="page" href="#"
                                 onclick="game_settings()">Game settings</button>
                     </div>
                     <div class="navbar-nav">
@@ -51,6 +51,26 @@
                 </div>
             </div>
         </nav>
+
+        <div id="game-set" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2>Game settings</h2>
+                <span class="close">&times;</span>
+
+            </div>
+            <div class="modal-body">
+                <h3>Choose game mode</h3> <br>
+                <button id="easy-mode" class="btn btn-primary" type="button">Easy</button> <br> <br>
+                <button id="medium-mode" class="btn btn-primary" type="button">Medium</button><br> <br>
+                <button id="ranked-mode" class="btn btn-primary" type="button">Ranked</button> <br>
+            </div>
+          </div>
+
+        </div>
+
+
+
         <div  class="header">
             <h1 id="aimtimer">Time will be here</h1>
         </div>
