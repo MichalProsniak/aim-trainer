@@ -5,8 +5,11 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 }
+var startingMinutes = 5;
+var time = startingMinutes * 60 - 1;
 let start = false
 let hitCounter=0;
+var gameMode = 2
 function changePosition() {
 
     let btn = document.getElementById('btn');
@@ -56,28 +59,11 @@ function game_settings() {
     let modal = document.getElementById("game-set");
     let gameSetBtn = document.getElementById("game-settings-button");
     let close = document.getElementsByClassName("close")[0];
-    let easyMode = document.getElementById("easy-mode");
-    let mediumMode = document.getElementById("medium-mode");
-    let rankedMode = document.getElementById("ranked-mode");
 
     // When the user clicks the button, open the modal
     gameSetBtn.onclick = function() {
       modal.style.display = "block";
     }
-
-    easyMode.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    mediumMode.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    rankedMode.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks on <span> (x), close the modal
     close.onclick = function() {
       modal.style.display = "none";
     }
@@ -89,13 +75,53 @@ function game_settings() {
 }
 
 function easyModeStart(){
+    gameMode = 1
+    let modal = document.getElementById("game-set");
+    modal.style.display = "none";
 
 }
 
 function mediumModeStart(){
-
+    gameMode = 2
+    let modal = document.getElementById("game-set");
+    modal.style.display = "none";
 }
 
 function rankedModeStart(){
+    gameMode = 3
+    let modal = document.getElementById("game-set");
+    modal.style.display = "none";
+}
+
+
+let xxx = false
+function updateCountdown() {
+    if (xxx === false) {
+        if (gameMode === 1) {
+            time = 3 * 60
+        } else if (gameMode === 2) {
+            time = 2 * 60
+        } else {
+            time = 1 * 60
+        }
+        xxx = true
+    }
+    const countDownEl = document.getElementById('aimtimer');
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    if (seconds <10) {
+        seconds = "0" + seconds
+    }
+    countDownEl.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+
+}
+let clicked = false
+function startTimer() {
+    if (clicked == true) {
+    } else {
+        setInterval(updateCountdown, 1000)
+        clicked = true
+    }
 
 }
