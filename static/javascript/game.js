@@ -78,13 +78,13 @@ function easyModeStart(){
     gameMode = 1
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-
 }
 
 function mediumModeStart(){
     gameMode = 2
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
+
 }
 
 function rankedModeStart(){
@@ -114,6 +114,9 @@ function updateCountdown() {
     }
     countDownEl.innerHTML = `${minutes}: ${seconds}`;
     time--;
+    if (time === 0) {
+        clearInterval(0)
+    }
 
 }
 let clicked = false

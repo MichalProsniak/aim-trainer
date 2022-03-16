@@ -123,4 +123,6 @@
     border-radius: 0%;
     border: 1px solid green;
     background-color: green;
+    transform: scale(1);
+    transition: transform 0s;
 }
