@@ -25,9 +25,6 @@ function changePosition() {
 
 }
 
-function incrementValue(a) {
-    return a++
-}
 
 function onloadbutton() {
     let btn = document.getElementById('btn');
@@ -89,4 +86,16 @@ function game_settings() {
         modal.style.display = "none";
       }
     }
+}
+
+function easyModeStart(){
+
+}
+
+function mediumModeStart(){
+
+}
+
+function rankedModeStart(){
+
 }
