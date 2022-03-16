@@ -8,7 +8,7 @@ function initGame() {
 var startingMinutes = 5;
 var time = startingMinutes * 60 - 1;
 let start = false
-let hitCounter=0;
+let hitCounter=-1;
 var gameMode = 2
 var maxTimer = 2*60;
 function changePosition() {
@@ -79,7 +79,6 @@ function easyModeStart(){
     maxTimer = 3 * 60
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-    let startButton = document.getElementsByClassName(target-button-start)
 }
 
 function mediumModeStart(){
@@ -128,8 +127,9 @@ function stopInterval() {
     let clInterval = false
     if (time === -1) {
         const countDownEl = document.getElementById('aimtimer');
-        countDownEl.innerHTML ='end';
+        countDownEl.innerHTML ='GAME OVER';
         clearInterval(myInterval)
+        endGame()
     } else if (time % 1 === 0) {
         let hitsPerSecond = hitCounter/(maxTimer - time);
         hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
@@ -140,6 +140,8 @@ function stopInterval() {
 
 var myInterval;
 let clicked = false
+
+
 function startTimer() {
     if (clicked == true) {
     } else {
@@ -148,4 +150,35 @@ function startTimer() {
 
     }
 
+}
+
+
+function endGame() {
+    let modal = document.getElementById("end-game");
+    modal.style.display = "block";
+}
+
+function playAgain() {
+    console.log(time)
+    console.log(gameMode)
+    hitCounter = -1;
+    missCounter = 0;
+
+    let modal = document.getElementById("end-game");
+    let close = document.getElementById("play-again")
+    let startButton = document.getElementById("btn");
+    startButton.classList.remove('target-button');
+    startButton.classList.add('target-button-start');
+    startButton.innerHTML = "Start game!"
+    startButton.style.left = "40%"
+    startButton.style.top = "50%"
+    clicked = false;
+    update = false;
+    startButton.onclick = function() {
+      startTimer();
+      statistics(changePosition(), missCounter)
+    }
+    close.onclick = function() {
+      modal.style.display = "none";
+    }
 }
