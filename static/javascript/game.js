@@ -10,6 +10,7 @@ var time = startingMinutes * 60 - 1;
 let start = false
 let hitCounter=0;
 var gameMode = 2
+var maxTimer = 2*60;
 function changePosition() {
 
     let btn = document.getElementById('btn');
@@ -41,17 +42,16 @@ function countMiss(){
 }
 
 
-function statistics(hitCounter, missCounter, maxTimer, userName) {
+function statistics(hitCounter, missCounter) {
     let shootCounter=hitCounter+missCounter;
     let accuracy = hitCounter/shootCounter * 100;
-    accuracy = accuracy.toString() + "%";
-    let hitsPerSecond = hitCounter/maxTimer;
-    hitsPerSecond = hitsPerSecond.toString() + "hit/s"
+    accuracy = accuracy.toFixed(2).toString() + "%";
+    let hitsPerSecond = hitCounter/(maxTimer - time);
+    hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
     document.getElementById("accuracy").innerHTML = accuracy;
     document.getElementById("miss_counter").innerHTML = missCounter;
     document.getElementById("hits_per_second").innerHTML = hitsPerSecond;
     document.getElementById("hit_counter").innerHTML = hitCounter;
-    document.getElementById("user_name").innerHTML = userName;
 }
 
 
@@ -76,14 +76,17 @@ function game_settings() {
 
 function easyModeStart(){
     gameMode = 1
+    maxTimer = 3 * 60
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
+    let startButton = document.getElementsByClassName(target-button-start)
 }
 
 function mediumModeStart(){
     gameMode = 2
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
+    maxTimer = 2 * 60
 
 }
 
@@ -91,20 +94,21 @@ function rankedModeStart(){
     gameMode = 3
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
+    maxTimer = 60
 }
 
 
-let xxx = false
+let update = false
 function updateCountdown() {
-    if (xxx === false) {
+    if (update === false) {
         if (gameMode === 1) {
             time = 3 * 60
         } else if (gameMode === 2) {
-            time = 20
+            time = 2 * 60
         } else {
             time = 1
         }
-        xxx = true
+        update = true
     }
     const countDownEl = document.getElementById('aimtimer');
     const minutes = Math.floor(time / 60);
@@ -126,6 +130,11 @@ function stopInterval() {
         const countDownEl = document.getElementById('aimtimer');
         countDownEl.innerHTML ='end';
         clearInterval(myInterval)
+    } else if (time % 1 === 0) {
+        let hitsPerSecond = hitCounter/(maxTimer - time);
+        hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
+        document.getElementById("hits_per_second").innerHTML = hitsPerSecond;
+
     }
 }
 
