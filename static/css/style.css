@@ -38,7 +38,7 @@
 
 .target-button {
     position: relative;
-    display: block;
+    display:block;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -115,7 +115,7 @@
 
 .target-button-start {
     position: relative;
-    left: 50% ;
+    left: 40% ;
     top: 50%;
     display:block;
     height: 50px;

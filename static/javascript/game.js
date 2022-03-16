@@ -100,9 +100,9 @@ function updateCountdown() {
         if (gameMode === 1) {
             time = 3 * 60
         } else if (gameMode === 2) {
-            time = 2 * 60
+            time = 20
         } else {
-            time = 1 * 60
+            time = 1
         }
         xxx = true
     }
@@ -114,17 +114,29 @@ function updateCountdown() {
     }
     countDownEl.innerHTML = `${minutes}: ${seconds}`;
     time--;
-    if (time === 0) {
-        clearInterval(0)
-    }
+    stopInterval()
+
+
 
 }
+
+function stopInterval() {
+    let clInterval = false
+    if (time === -1) {
+        const countDownEl = document.getElementById('aimtimer');
+        countDownEl.innerHTML ='end';
+        clearInterval(myInterval)
+    }
+}
+
+var myInterval;
 let clicked = false
 function startTimer() {
     if (clicked == true) {
     } else {
-        setInterval(updateCountdown, 1000)
+        myInterval = setInterval(updateCountdown, 1000)
         clicked = true
+
     }
 
 }
