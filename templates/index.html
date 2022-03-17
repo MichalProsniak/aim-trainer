@@ -20,7 +20,14 @@
 
         <script src="/static/javascript/game.js"></script>
 </head>
-<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<body onload="crosshairPointer()">
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <label class="navbar-brand">AIM trainer</label>
@@ -39,7 +46,7 @@
                                 onclick="game_settings()">Game settings</button>
                     </div>
                     <div class="navbar-nav">
-                        <button class="btn btn-primary" type="button" href="#" onclick="easyModeStart()"
+                        <button class="btn btn-primary" type="button" href="#" onclick="visualSettings()"
                         >Visual settings</button>
                     </div>
                     <div class="navbar-nav ms-auto">
@@ -63,6 +70,23 @@
                 <button id="easy-mode" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
                 <button id="medium-mode" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
                 <button id="ranked-mode" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="visuals" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2>Visuals</h2>
+                <span id="xclose" class="close">&times;</span>
+
+            </div>
+            <div class="modal-body">
+                <h3>Choose target</h3> <br>
+                <button id="red-target" class="red-tb" type="button" onclick="targetRed()"></button> <br> <br>
+                <button id="blue-target" class="blue-tb" type="button" onclick="targetBlue()"></button><br> <br>
+                <button id="yellow-target" class="yellow-tb" type="button" onclick="targetYellow()"></button> <br>
             </div>
           </div>
 
@@ -94,8 +118,8 @@
 
             </div>
             <div class="column board">
-                <button class="board-button" type="button" onclick="statistics(hitCounter, countMiss())"></button>
-                <button class="target-button-start btn btn-primary" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
+                <button class="board-button" id="board-btn" type="button" ></button>
+                <button class="target-button-start btn btn-success" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
             </div>
             <div class="column statistics">
                 <h2>Statistics</h2>
