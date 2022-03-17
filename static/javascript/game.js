@@ -11,6 +11,16 @@ let start = false
 let hitCounter=-1;
 var gameMode = 2
 var maxTimer = 2*60;
+var targetColor = "red"
+
+function crosshairPointer() {
+    let board = document.getElementById("board-btn");
+    let target = document.getElementById('btn');
+    board.style.cursor = "crosshair";
+    target.style.cursor = "crosshair";
+
+}
+
 function changePosition() {
 
     let btn = document.getElementById('btn');
@@ -20,9 +30,10 @@ function changePosition() {
     buttonBoard[0].onclick = function (){
         statistics(hitCounter, countMiss());
     }
+    changeTargetColor()
     btn.classList.remove('target-button-start');
     btn.classList.remove('btn');
-    btn.classList.remove('btn-primary');
+    btn.classList.remove('btn-success');
     btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
     btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
     btn.classList.remove('target-button');
@@ -50,6 +61,9 @@ function countMiss(){
 function statistics(hitCounter, missCounter) {
     let shootCounter=hitCounter+missCounter;
     let accuracy = hitCounter/shootCounter * 100;
+    if (Number.isNaN(accuracy)) {
+        accuracy = 0;
+    }
     accuracy = accuracy.toFixed(2).toString() + "%";
     let hitsPerSecond = hitCounter/(maxTimer - time);
     hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
@@ -173,7 +187,9 @@ function playAgain() {
     buttonBoard[0].onclick = '';
     startButton.classList.add('target-button-start');
     startButton.classList.add('btn');
-    startButton.classList.add('btn-primary');
+    startButton.classList.add('btn-success');
+    startButton.style.backgroundColor = "#198754"
+    startButton.style.border = "1px solid #198754"
     startButton.innerHTML = "Start game!"
     startButton.style.left = "40%"
     startButton.style.top = "50%"
@@ -185,4 +201,57 @@ function playAgain() {
     }
     modal.style.display = "none";
 
+}
+
+function visualSettings() {
+    let modal = document.getElementById("visuals");
+    let close = document.getElementById("xclose");
+
+    // When the user clicks the button, open the modal
+    modal.style.display = "block";
+
+    close.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+}
+
+function targetRed() {
+    targetColor = 'red'
+    let target = document.querySelector(".target-button");
+    target.style.border = "1px solid red"
+    target.style.backgroundColor = "red"
+}
+
+function targetBlue() {
+    targetColor = 'blue'
+    let target = document.querySelector(".target-button");
+    target.style.border = "1px solid royalblue"
+    target.style.backgroundColor = "royalblue"
+}
+
+function targetYellow() {
+    targetColor = 'yellow'
+    let target = document.querySelector(".target-button");
+    target.style.border = "1px solid gold"
+    target.style.backgroundColor = "gold"
+}
+
+
+function changeTargetColor() {
+    let target = document.querySelector(".target-button");
+    if (targetColor === 'red') {
+        target.style.border = "1px solid red"
+        target.style.backgroundColor = "red"
+    } else if (targetColor === 'blue') {
+        target.style.border = "1px solid royalblue"
+        target.style.backgroundColor = "royalblue"
+    } else {
+        target.style.border = "1px solid gold"
+        target.style.backgroundColor = "gold"
+    }
 }

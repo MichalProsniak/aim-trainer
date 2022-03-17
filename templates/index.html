@@ -4,23 +4,23 @@
     <title>Aim trainer</title>
     <meta charset="UTF-8">
 
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-        crossorigin="anonymous"
-    />
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="/static/javascript/game.js"></script>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous"
+        />
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="/static/javascript/game.js"></script>
 </head>
-<body>
+<body onload="crosshairPointer()">
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <label class="navbar-brand">AIM trainer</label>
@@ -68,6 +68,23 @@
 
         </div>
 
+        <div id="visuals" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2>Visuals</h2>
+                <span id="xclose" class="close">&times;</span>
+
+            </div>
+            <div class="modal-body">
+                <h3>Choose target</h3> <br>
+                <button id="red-target" class="red-tb" type="button" onclick="targetRed()"></button> <br> <br>
+                <button id="blue-target" class="blue-tb" type="button" onclick="targetBlue()"></button><br> <br>
+                <button id="yellow-target" class="yellow-tb" type="button" onclick="targetYellow()"></button> <br>
+            </div>
+          </div>
+
+        </div>
+
         <div id="end-game" class="modal">
           <div class="modal-content">
             <div class="modal-header">
@@ -94,8 +111,8 @@
 
             </div>
             <div class="column board">
-                <button class="board-button" type="button"></button>
-                <button class="target-button-start btn btn-primary" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
+                <button class="board-button" id="board-btn" type="button" onclick="statistics(hitCounter, countMiss())"></button>
+                <button class="target-button-start btn btn-success" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
             </div>
             <div class="column statistics">
                 <h2>Statistics</h2>
