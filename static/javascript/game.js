@@ -7,11 +7,14 @@ function initGame() {
 }
 var startingMinutes = 5;
 var time = startingMinutes * 60 - 1;
-let start = false
 let hitCounter=-1;
-var gameMode = 2
+var gameMode = 2;
 var maxTimer = 2*60;
-var targetColor = "red"
+var targetColor = "red";
+let missCounter=0;
+let update = false;
+var myInterval;
+let clicked = false;
 
 function crosshairPointer() {
     let board = document.getElementById("board-btn");
@@ -45,13 +48,6 @@ function changePosition() {
 
 }
 
-
-function onloadbutton() {
-    let btn = document.getElementById('btn');
-    btn.innerHTML = "Start game!"
-}
-
-let missCounter=0;
 function countMiss(){
     missCounter+=1;
     return missCounter
@@ -92,83 +88,69 @@ function game_settings() {
 }
 
 function easyModeStart(){
-    gameMode = 1
-    maxTimer = 3 * 60
+    gameMode = 1;
+    maxTimer = 3 * 60;
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
 }
 
 function mediumModeStart(){
-    gameMode = 2
+    gameMode = 2;
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-    maxTimer = 2 * 60
+    maxTimer = 2 * 60;
 
 }
 
 function rankedModeStart(){
-    gameMode = 3
+    gameMode = 3;
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-    maxTimer = 60
+    maxTimer = 60;
 }
 
-
-let update = false
 function updateCountdown() {
     if (update === false) {
         if (gameMode === 1) {
-            time = 3 * 60 - 1
+            time = 3 * 60 - 1;
         } else if (gameMode === 2) {
-            time = 2 * 60 - 1
+            time = 2 * 60 - 1;
         } else {
-            time = 10 - 1
+            time = 10 - 1;
         }
-        update = true
+        update = true;
     }
     const countDownEl = document.getElementById('aimtimer');
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
     if (seconds <10) {
-        seconds = "0" + seconds
+        seconds = "0" + seconds;
     }
     countDownEl.innerHTML = `${minutes}: ${seconds}`;
     time--;
-    stopInterval()
-
-
-
+    stopInterval();
 }
 
 function stopInterval() {
-    let clInterval = false
     if (time === -1) {
         const countDownEl = document.getElementById('aimtimer');
         countDownEl.innerHTML ='GAME OVER';
-        clearInterval(myInterval)
-        endGame()
+        clearInterval(myInterval);
+        endGame();
     } else if (time % 1 === 0) {
         let hitsPerSecond = hitCounter/(maxTimer - time);
-        hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
+        hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s";
         document.getElementById("hits_per_second").innerHTML = hitsPerSecond;
-
     }
 }
-
-var myInterval;
-let clicked = false
-
 
 function startTimer() {
     if (clicked == true) {
     } else {
-        myInterval = setInterval(updateCountdown, 1000)
-        clicked = true
-
+        myInterval = setInterval(updateCountdown, 1000);
+        clicked = true;
     }
-
 }
-
 
 function endGame() {
     let modal = document.getElementById("end-game");
@@ -188,16 +170,16 @@ function playAgain() {
     startButton.classList.add('target-button-start');
     startButton.classList.add('btn');
     startButton.classList.add('btn-success');
-    startButton.style.backgroundColor = "#198754"
-    startButton.style.border = "1px solid #198754"
-    startButton.innerHTML = "Start game!"
-    startButton.style.left = "40%"
-    startButton.style.top = "50%"
+    startButton.style.backgroundColor = "#198754";
+    startButton.style.border = "1px solid #198754";
+    startButton.innerHTML = "Start game!";
+    startButton.style.left = "40%";
+    startButton.style.top = "50%";
     clicked = false;
     update = false;
     startButton.onclick = function() {
       startTimer();
-      statistics(changePosition(), missCounter)
+      statistics(changePosition(), missCounter);
     }
     modal.style.display = "none";
 
@@ -221,37 +203,27 @@ function visualSettings() {
 }
 
 function targetRed() {
-    targetColor = 'red'
-    let target = document.querySelector(".target-button");
-    target.style.border = "1px solid red"
-    target.style.backgroundColor = "red"
+    targetColor = 'red';
 }
 
 function targetBlue() {
-    targetColor = 'blue'
-    let target = document.querySelector(".target-button");
-    target.style.border = "1px solid royalblue"
-    target.style.backgroundColor = "royalblue"
+    targetColor = 'blue';
 }
 
 function targetYellow() {
-    targetColor = 'yellow'
-    let target = document.querySelector(".target-button");
-    target.style.border = "1px solid gold"
-    target.style.backgroundColor = "gold"
+    targetColor = 'yellow';
 }
-
 
 function changeTargetColor() {
     let target = document.querySelector(".target-button");
     if (targetColor === 'red') {
-        target.style.border = "1px solid red"
-        target.style.backgroundColor = "red"
+        target.style.border = "1px solid red";
+        target.style.backgroundColor = "red";
     } else if (targetColor === 'blue') {
-        target.style.border = "1px solid royalblue"
-        target.style.backgroundColor = "royalblue"
+        target.style.border = "1px solid royalblue";
+        target.style.backgroundColor = "royalblue";
     } else {
-        target.style.border = "1px solid gold"
-        target.style.backgroundColor = "gold"
+        target.style.border = "1px solid gold";
+        target.style.backgroundColor = "gold";
     }
 }
