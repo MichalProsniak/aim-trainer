@@ -35,6 +35,7 @@
     position: absolute;
     height: 800px;
     width: 80%;
+    background-color: white;
 }
 
 .target-button{
@@ -156,4 +157,43 @@
     border-radius: 50%;
     border: 1px solid gold;
     background-color: gold;
+}
+
+.background{
+    float: left;
+}
+.background.target{
+    width: 50%;
+}
+
+.background.board{
+    width: 50%;
+}
+
+.white-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.black-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: black;
+}
+
+.shooting-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-image: url("https://st.depositphotos.com/1032463/1576/i/600/depositphotos_15760251-stock-photo-hand-with-gun-shooting-target.jpg");
+    background-size: 130%;
 }

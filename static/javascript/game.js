@@ -5,6 +5,8 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 }
+//zmieniac time w updateCountdown oraz maxTimer w rankedModeStart, żeby były takie same
+
 var startingMinutes = 5;
 var time = startingMinutes * 60 - 1;
 let hitCounter=-1;
@@ -57,26 +59,26 @@ function countMiss(){
 function statistics(hitCounter, missCounter) {
     let shootCounter=hitCounter+missCounter;
     let accuracy = hitCounter/shootCounter * 100;
+    let hitsPerSecond = hitCounter/(maxTimer - time + 1);
+    hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
     if (Number.isNaN(accuracy)) {
         accuracy = 0;
     }
     accuracy = accuracy.toFixed(2).toString() + "%";
-    let hitsPerSecond = hitCounter/(maxTimer - time);
-    hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
     document.getElementById("accuracy").innerHTML = accuracy;
     document.getElementById("miss_counter").innerHTML = missCounter;
-    document.getElementById("hits_per_second").innerHTML = hitsPerSecond;
     document.getElementById("hit_counter").innerHTML = hitCounter;
+    document.getElementById("accuracy1").innerHTML = accuracy;
+    document.getElementById("miss_counter1").innerHTML = missCounter;
+    document.getElementById("hit_counter1").innerHTML = hitCounter;
+    document.getElementById("hits_per_second1").innerHTML = hitsPerSecond;
 }
 
 
 function game_settings() {
     let modal = document.getElementById("game-set");
     let close = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
     modal.style.display = "block";
-
     close.onclick = function() {
       modal.style.display = "none";
     }
@@ -106,7 +108,7 @@ function rankedModeStart(){
     gameMode = 3;
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-    maxTimer = 60;
+    maxTimer = 30;
 }
 
 function updateCountdown() {
@@ -116,7 +118,7 @@ function updateCountdown() {
         } else if (gameMode === 2) {
             time = 2 * 60 - 1;
         } else {
-            time = 10 - 1;
+            time = 30 - 1;
         }
         update = true;
     }
@@ -226,4 +228,21 @@ function changeTargetColor() {
         target.style.border = "1px solid gold";
         target.style.backgroundColor = "gold";
     }
+}
+
+function whiteBackground(){
+    let board = document.getElementById("board-btn");
+    board.style.backgroundColor = "white";
+}
+
+function blackBackground(){
+    let board = document.getElementById("board-btn");
+    board.style.backgroundColor = "black";
+
+}
+
+function shootingBackground(){
+    let board = document.getElementById("board-btn");
+    board.style.backgroundImage = 'url("https://www.cnnphilippines.com/.imaging/mte/demo-cnn-new/960/dam/cnn/2017/1/17/Sky-Range.jpg/jcr:content/Sky%20Range.jpg")';
+    board.style.backgroundSize = "100%";
 }

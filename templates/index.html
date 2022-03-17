@@ -83,10 +83,18 @@
 
             </div>
             <div class="modal-body">
-                <h3>Choose target</h3> <br>
-                <button id="red-target" class="red-tb" type="button" onclick="targetRed()"></button> <br> <br>
-                <button id="blue-target" class="blue-tb" type="button" onclick="targetBlue()"></button><br> <br>
-                <button id="yellow-target" class="yellow-tb" type="button" onclick="targetYellow()"></button> <br>
+                <div class="background target">
+                    <h3>Choose target</h3> <br>
+                    <button id="red-target" class="red-tb" type="button" onclick="targetRed()"></button> <br> <br>
+                    <button id="blue-target" class="blue-tb" type="button" onclick="targetBlue()"></button><br> <br>
+                    <button id="yellow-target" class="yellow-tb" type="button" onclick="targetYellow()"></button> <br>
+                </div>
+                <div class="background board">
+                    <h3>Choose background</h3> <br>
+                    <button id="white-board" class="white-bd" type="button" onclick="whiteBackground()"></button> <br> <br>
+                    <button id="black-board" class="black-bd" type="button" onclick="blackBackground()"></button><br> <br>
+                    <button id="shooting-board" class="shooting-bd" type="button" onclick="shootingBackground()"></button> <br>
+                </div>
             </div>
           </div>
 
@@ -98,11 +106,20 @@
                 <h2>THE END</h2>
             </div>
             <div class="modal-body">
-                <h3>Choose game mode</h3> <br>
-                <button id="easy-mode1" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
-                <button id="medium-mode1" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
-                <button id="ranked-mode1" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br> <br>
-                <button id="play-again" class="btn btn-primary" type="button" onclick="playAgain()">Play again</button> <br>
+                <div class="background board">
+                    <h3>Choose game mode</h3> <br>
+                    <button id="easy-mode1" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
+                    <button id="medium-mode1" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
+                    <button id="ranked-mode1" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br> <br>
+                    <button id="play-again" class="btn btn-primary" type="button" onclick="playAgain()">Play again</button> <br>
+                </div>
+                <div class="background board">
+                    <h3>Statistics</h3> <br>
+                    <p>Accuracy: <span id="accuracy1"></span></p>
+                    <p>Hit targets: <span id="hit_counter1"></span></p>
+                    <p>Miss targets: <span id="miss_counter1"></span></p>
+                    <p>APS: <span id="hits_per_second1"></span></p>
+                </div>
             </div>
           </div>
 
