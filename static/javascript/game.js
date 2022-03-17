@@ -57,13 +57,11 @@ function statistics(hitCounter, missCounter) {
 
 function game_settings() {
     let modal = document.getElementById("game-set");
-    let gameSetBtn = document.getElementById("game-settings-button");
     let close = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal
-    gameSetBtn.onclick = function() {
-      modal.style.display = "block";
-    }
+    modal.style.display = "block";
+
     close.onclick = function() {
       modal.style.display = "none";
     }
@@ -159,8 +157,6 @@ function endGame() {
 }
 
 function playAgain() {
-    console.log(time)
-    console.log(gameMode)
     hitCounter = -1;
     missCounter = 0;
 
@@ -178,7 +174,6 @@ function playAgain() {
       startTimer();
       statistics(changePosition(), missCounter)
     }
-    close.onclick = function() {
-      modal.style.display = "none";
-    }
+    modal.style.display = "none";
+
 }
