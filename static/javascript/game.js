@@ -11,6 +11,15 @@ let start = false
 let hitCounter=-1;
 var gameMode = 2
 var maxTimer = 2*60;
+
+function crosshairPointer() {
+    let board = document.getElementById("board-btn");
+    let target = document.getElementById('btn');
+    board.style.cursor = "crosshair";
+    target.style.cursor = "crosshair";
+
+}
+
 function changePosition() {
 
     let btn = document.getElementById('btn');
@@ -19,7 +28,7 @@ function changePosition() {
     btn.classList.add('target-button');
     btn.classList.remove('target-button-start');
     btn.classList.remove('btn');
-    btn.classList.remove('btn-primary');
+    btn.classList.remove('btn-success');
     btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
     btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
     btn.classList.remove('target-button');
@@ -47,6 +56,9 @@ function countMiss(){
 function statistics(hitCounter, missCounter) {
     let shootCounter=hitCounter+missCounter;
     let accuracy = hitCounter/shootCounter * 100;
+    if (Number.isNaN(accuracy)) {
+        accuracy = 0;
+    }
     accuracy = accuracy.toFixed(2).toString() + "%";
     let hitsPerSecond = hitCounter/(maxTimer - time);
     hitsPerSecond = hitsPerSecond.toFixed(2).toString() + "hit/s"
@@ -168,7 +180,7 @@ function playAgain() {
     startButton.classList.remove('target-button');
     startButton.classList.add('target-button-start');
     startButton.classList.add('btn');
-    startButton.classList.add('btn-primary');
+    startButton.classList.add('btn-success');
     startButton.innerHTML = "Start game!"
     startButton.style.left = "40%"
     startButton.style.top = "50%"

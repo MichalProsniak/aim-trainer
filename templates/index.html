@@ -20,7 +20,7 @@
 
         <script src="/static/javascript/game.js"></script>
 </head>
-<body>
+<body onload="crosshairPointer()">
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <label class="navbar-brand">AIM trainer</label>
@@ -94,8 +94,8 @@
 
             </div>
             <div class="column board">
-                <button class="board-button" type="button" onclick="statistics(hitCounter, countMiss())"></button>
-                <button class="target-button-start btn btn-primary" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
+                <button class="board-button" id="board-btn" type="button" onclick="statistics(hitCounter, countMiss())"></button>
+                <button class="target-button-start btn btn-success" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
             </div>
             <div class="column statistics">
                 <h2>Statistics</h2>
