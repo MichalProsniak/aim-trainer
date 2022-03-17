@@ -5,6 +5,8 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 }
+//zmieniac time w updateCountdown oraz maxTimer w rankedModeStart, żeby były takie same
+
 var startingMinutes = 5;
 var time = startingMinutes * 60 - 1;
 let hitCounter=-1;
@@ -106,7 +108,7 @@ function rankedModeStart(){
     gameMode = 3;
     let modal = document.getElementById("game-set");
     modal.style.display = "none";
-    maxTimer = 60;
+    maxTimer = 30;
 }
 
 function updateCountdown() {
@@ -116,7 +118,7 @@ function updateCountdown() {
         } else if (gameMode === 2) {
             time = 2 * 60 - 1;
         } else {
-            time = 10 - 1;
+            time = 30 - 1;
         }
         update = true;
     }
@@ -226,4 +228,16 @@ function changeTargetColor() {
         target.style.border = "1px solid gold";
         target.style.backgroundColor = "gold";
     }
+}
+
+function whiteBackground(){
+
+}
+
+function blackBackground(){
+
+}
+
+function shootingBackground(){
+
 }

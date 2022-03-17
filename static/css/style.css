@@ -154,3 +154,41 @@
     border: 1px solid gold;
     background-color: gold;
 }
+
+.background{
+    float: left;
+}
+.background.target{
+    width: 50%;
+}
+
+.background.board{
+    width: 50%;
+}
+
+.white-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.black-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: black;
+}
+
+.shooting-bd{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-image: url("https://www.cnnphilippines.com/.imaging/mte/demo-cnn-new/960/dam/cnn/2017/1/17/Sky-Range.jpg/jcr:content/Sky%20Range.jpg");
+}
