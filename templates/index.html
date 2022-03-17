@@ -19,7 +19,6 @@
         ></script>
 
         <script src="/static/javascript/game.js"></script>
-        <script src="/static/javascript/timer.js"></script>
 </head>
 <body>
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,7 +39,7 @@
                                 onclick="game_settings()">Game settings</button>
                     </div>
                     <div class="navbar-nav">
-                        <button class="btn btn-primary" type="button" href="#" onclick="startTimer()"
+                        <button class="btn btn-primary" type="button" href="#" onclick="easyModeStart()"
                         >Visual settings</button>
                     </div>
                     <div class="navbar-nav ms-auto">
@@ -61,14 +60,29 @@
             </div>
             <div class="modal-body">
                 <h3>Choose game mode</h3> <br>
-                <button id="easy-mode" class="btn btn-primary" type="button">Easy</button> <br> <br>
-                <button id="medium-mode" class="btn btn-primary" type="button">Medium</button><br> <br>
-                <button id="ranked-mode" class="btn btn-primary" type="button">Ranked</button> <br>
+                <button id="easy-mode" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
+                <button id="medium-mode" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
+                <button id="ranked-mode" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br>
             </div>
           </div>
 
         </div>
 
+        <div id="end-game" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2>THE END</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Choose game mode</h3> <br>
+                <button id="easy-mode1" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
+                <button id="medium-mode1" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
+                <button id="ranked-mode1" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br> <br>
+                <button id="play-again" class="btn btn-primary" type="button" onclick="playAgain()">Play again</button> <br>
+            </div>
+          </div>
+
+        </div>
 
 
         <div  class="header">
@@ -80,8 +94,8 @@
 
             </div>
             <div class="column board">
-                <button class="board-button" type="button" onclick="statistics(hitCounter, countMiss(), 0, 'Damian')"></button>
-                <button class="target-button-start" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter, 0, 'Damian')">Start game!</button>
+                <button class="board-button" type="button" onclick="statistics(hitCounter, countMiss())"></button>
+                <button class="target-button-start" id="btn" type="button" onclick="startTimer(), statistics(changePosition(), missCounter)">Start game!</button>
             </div>
             <div class="column statistics">
                 <h2>Statistics</h2>
