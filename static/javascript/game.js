@@ -18,6 +18,8 @@ function changePosition() {
     btn.innerHTML = "";
     btn.classList.add('target-button');
     btn.classList.remove('target-button-start');
+    btn.classList.remove('btn');
+    btn.classList.remove('btn-primary');
     btn.style.top = Math.floor((Math.random() * 750) + 1) + "px";
     btn.style.left = Math.floor((Math.random() * 900) + 1) + "px";
     btn.classList.remove('target-button');
@@ -57,13 +59,11 @@ function statistics(hitCounter, missCounter) {
 
 function game_settings() {
     let modal = document.getElementById("game-set");
-    let gameSetBtn = document.getElementById("game-settings-button");
     let close = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal
-    gameSetBtn.onclick = function() {
-      modal.style.display = "block";
-    }
+    modal.style.display = "block";
+
     close.onclick = function() {
       modal.style.display = "none";
     }
@@ -159,8 +159,6 @@ function endGame() {
 }
 
 function playAgain() {
-    console.log(time)
-    console.log(gameMode)
     hitCounter = -1;
     missCounter = 0;
 
@@ -169,6 +167,8 @@ function playAgain() {
     let startButton = document.getElementById("btn");
     startButton.classList.remove('target-button');
     startButton.classList.add('target-button-start');
+    startButton.classList.add('btn');
+    startButton.classList.add('btn-primary');
     startButton.innerHTML = "Start game!"
     startButton.style.left = "40%"
     startButton.style.top = "50%"
@@ -178,7 +178,6 @@ function playAgain() {
       startTimer();
       statistics(changePosition(), missCounter)
     }
-    close.onclick = function() {
-      modal.style.display = "none";
-    }
+    modal.style.display = "none";
+
 }
