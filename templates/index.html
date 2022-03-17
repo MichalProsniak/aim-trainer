@@ -39,7 +39,7 @@
                                 onclick="game_settings()">Game settings</button>
                     </div>
                     <div class="navbar-nav">
-                        <button class="btn btn-primary" type="button" href="#" onclick="easyModeStart()"
+                        <button class="btn btn-primary" type="button" href="#" onclick="visualSettings()"
                         >Visual settings</button>
                     </div>
                     <div class="navbar-nav ms-auto">
@@ -63,6 +63,23 @@
                 <button id="easy-mode" class="btn btn-primary" type="button" onclick="easyModeStart()">Easy</button> <br> <br>
                 <button id="medium-mode" class="btn btn-primary" type="button" onclick="mediumModeStart()">Medium</button><br> <br>
                 <button id="ranked-mode" class="btn btn-primary" type="button" onclick="rankedModeStart()">Ranked</button> <br>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="visuals" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2>Visuals</h2>
+                <span id="xclose" class="close">&times;</span>
+
+            </div>
+            <div class="modal-body">
+                <h3>Choose target</h3> <br>
+                <button id="red-target" class="red-tb" type="button" onclick="targetRed()"></button> <br> <br>
+                <button id="blue-target" class="blue-tb" type="button" onclick="targetBlue()"></button><br> <br>
+                <button id="yellow-target" class="yellow-tb" type="button" onclick="targetYellow()"></button> <br>
             </div>
           </div>
 

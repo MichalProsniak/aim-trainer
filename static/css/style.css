@@ -7,21 +7,22 @@
 }
 
 .column.timer {
-    background-color: blue;
-    width: 5%;
+    background-color: white;
+    width: 9%;
     height: 800px;
 }
 
 .column.board{
-    background-color: grey;
+    background-color: white;
     width: 80%;
     height: 800px;
 }
 
 .column.statistics {
-    background-color: rebeccapurple;
-    width: 15%;
-    height: 800px;
+    background-color: #f8f9fa;
+    width: 9%;
+    height: 250px;
+    padding-right: 2%;
 }
 
 .row:after {
@@ -124,3 +125,32 @@
     transition: transform 0s;
 }
 
+.red-tb{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
+    background-color: red;
+}
+
+.blue-tb{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid royalblue;
+    background-color: royalblue;
+}
+
+.yellow-tb{
+    position: relative;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid gold;
+    background-color: gold;
+}
