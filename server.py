@@ -61,6 +61,8 @@ def register():
 
 @app.route('/logout')
 def logout():
+    if len(session) == 0:
+        return redirect("/")
     if "user" in session:
         session.pop("user", None)
     return redirect(url_for("main"))
