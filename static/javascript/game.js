@@ -57,6 +57,14 @@ function countMiss(){
 
 
 function statistics(hitCounter, missCounter) {
+    let messageMode;
+    if (gameMode === 1) {
+        messageMode = "Easy";
+    } else if (gameMode === 2) {
+        messageMode = "Medium";
+    } else {
+        messageMode = "Ranked";
+    }
     let shootCounter=hitCounter+missCounter;
     let accuracy = hitCounter/shootCounter * 100;
     let hitsPerSecond = hitCounter/(maxTimer - time + 1);
@@ -66,6 +74,7 @@ function statistics(hitCounter, missCounter) {
     }
     accuracy = accuracy.toFixed(2).toString() + "%";
     document.getElementById("accuracy").innerHTML = accuracy;
+    document.getElementById("difficulty").innerHTML = messageMode;
     document.getElementById("miss_counter").innerHTML = missCounter;
     document.getElementById("hit_counter").innerHTML = hitCounter;
     document.getElementById("accuracy1").innerHTML = accuracy;

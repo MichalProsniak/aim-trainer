@@ -7,10 +7,6 @@ import psycopg2.extras
 def get_connection_string():
     # setup connection string
     # to do this, please define these environment variables first
-    os.environ['PSQL_USER_NAME'] = 'postgres'
-    os.environ['PSQL_PASSWORD'] = 'awsd'
-    os.environ['PSQL_HOST'] = 'localhost'
-    os.environ['PSQL_DB_NAME'] = 'aim_database'
     user_name = os.environ.get('PSQL_USER_NAME')
     password = os.environ.get('PSQL_PASSWORD')
     host = os.environ.get('PSQL_HOST')

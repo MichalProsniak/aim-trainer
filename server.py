@@ -5,20 +5,26 @@ import data_base_functions
 
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
-app.secret_key = "b/\n\xefp\xc6z\xaaj\xbd\x1fR=\x17.f%\xbf\xe7I\xd3"
+# app.secret_key = "b/\n\xefp\xc6z\xaaj\xbd\x1fR=\x17.f%\xbf\xe7I\xd3"
+app.secret_key = "11"
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
-        return render_template('index.html')
+        if len(session) == 0:
+            username = 'Guest'
+        else:
+            username = session['user']
+        return render_template('index.html', username=username)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if len(session) == 1:
+        return redirect("/")
     if request.method == "GET":
         return render_template('login.html')
     if request.method == "GET" and "user" in session:
-        flash("You are logged in", "info")
         return redirect('/')
     username = request.form['username']
     password = request.form['password']
@@ -27,7 +33,6 @@ def login():
         # hashed_password = data_base_functions.get_user_password(username)
         if data_base_functions.get_user_password(username) == password:
             session['user'] = username
-            flash(f"You have been logged in {username}!", "info")
             return redirect('/')
         else:
             error = "Incorrect username or password"
@@ -39,6 +44,8 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if len(session) == 1:
+        return redirect("/")
     if request.method == 'GET':
         return render_template('register.html')
     user_name = request.form['username']
@@ -55,9 +62,7 @@ def register():
 @app.route('/logout')
 def logout():
     if "user" in session:
-        user = session["user"]
-        flash(f"You have been logged out {user}!", "info")
-    session.pop("user", None)
+        session.pop("user", None)
     return redirect(url_for("main"))
 
 

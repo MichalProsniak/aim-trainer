@@ -50,9 +50,24 @@
                         >Visual settings</button>
                     </div>
                     <div class="navbar-nav ms-auto">
-                        <a id="register" class="btn btn-primary" href="register">
-                            Register
-                        </a>
+                        {% if username == 'Guest' %}
+                        <div style="padding-right: 15px">
+                            <a id="register" class="btn btn-primary" href="register">
+                                Register
+                            </a>
+                        </div>
+                        <div>
+                            <a id="login" class="btn btn-primary" href="login">
+                                Login
+                            </a>
+                        </div>
+                        {% else %}
+                        <div>
+                            <a id="logout" class="btn btn-primary" href="logout">
+                                Logout
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -140,7 +155,8 @@
             </div>
             <div class="column statistics">
                 <h2>Statistics</h2>
-                <p>Player: <span id="user_name"></span></p>
+                <p>Player: <span id="user_name">{{ username }}</span></p>
+                <p>Difficulty: <span id="difficulty"></span></p>
                 <p>Accuracy: <span id="accuracy"></span></p>
                 <p>Hit targets: <span id="hit_counter"></span></p>
                 <p>Miss targets: <span id="miss_counter"></span></p>
