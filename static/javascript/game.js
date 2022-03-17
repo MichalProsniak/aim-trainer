@@ -14,9 +14,12 @@ var maxTimer = 2*60;
 function changePosition() {
 
     let btn = document.getElementById('btn');
-
+    let buttonBoard = document.getElementsByClassName('board-button');
     btn.innerHTML = "";
     btn.classList.add('target-button');
+    buttonBoard[0].onclick = function (){
+        statistics(hitCounter, countMiss());
+    }
     btn.classList.remove('target-button-start');
     btn.classList.remove('btn');
     btn.classList.remove('btn-primary');
@@ -163,9 +166,11 @@ function playAgain() {
     missCounter = 0;
 
     let modal = document.getElementById("end-game");
-    let close = document.getElementById("play-again")
     let startButton = document.getElementById("btn");
+    let buttonBoard = document.getElementsByClassName('board-button');
     startButton.classList.remove('target-button');
+    console.log(buttonBoard[0]);
+    buttonBoard[0].onclick = '';
     startButton.classList.add('target-button-start');
     startButton.classList.add('btn');
     startButton.classList.add('btn-primary');
