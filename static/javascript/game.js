@@ -118,11 +118,11 @@ let update = false
 function updateCountdown() {
     if (update === false) {
         if (gameMode === 1) {
-            time = 3 * 60
+            time = 3 * 60 - 1
         } else if (gameMode === 2) {
-            time = 2 * 60
+            time = 2 * 60 - 1
         } else {
-            time = 1
+            time = 10 - 1
         }
         update = true
     }
