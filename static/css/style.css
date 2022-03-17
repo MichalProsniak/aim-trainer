@@ -35,6 +35,7 @@
     position: absolute;
     height: 800px;
     width: 80%;
+    background-color: white;
 }
 
 .target-button{
@@ -190,5 +191,6 @@
     height: 50px;
     width: 50px;
     border: 1px solid black;
-    background-image: url("https://www.cnnphilippines.com/.imaging/mte/demo-cnn-new/960/dam/cnn/2017/1/17/Sky-Range.jpg/jcr:content/Sky%20Range.jpg");
+    background-image: url("https://st.depositphotos.com/1032463/1576/i/600/depositphotos_15760251-stock-photo-hand-with-gun-shooting-target.jpg");
+    background-size: 130%;
 }
