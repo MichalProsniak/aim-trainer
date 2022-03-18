@@ -241,11 +241,13 @@ function changeTargetColor() {
 
 function whiteBackground(){
     let board = document.getElementById("board-btn");
+    board.style.backgroundImage = 'none'
     board.style.backgroundColor = "white";
 }
 
 function blackBackground(){
     let board = document.getElementById("board-btn");
+    board.style.backgroundImage = 'none'
     board.style.backgroundColor = "black";
 
 }
